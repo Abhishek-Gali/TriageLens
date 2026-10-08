@@ -34,55 +34,52 @@
   <rect x="28" y="28" width="1224" height="584" rx="18" fill="none" stroke="#1E293B" stroke-width="2"/>
   <rect x="28" y="28" width="1224" height="4" rx="2" fill="url(#accentCyan)"/>
 
-  <!-- ================= LEFT COLUMN: BRAND & ARCHITECTURE ================= -->
+  <!-- ================= LEFT COLUMN: BRAND & FDE ARCHITECTURE ================= -->
 
   <!-- TriageLens Shield + Lens Emblem -->
   <g transform="translate(72, 74)">
     <rect x="0" y="0" width="88" height="88" rx="20" fill="url(#shieldGrad)" stroke="#38BDF8" stroke-width="2"/>
-    <!-- Shield outline -->
     <path d="M44 16 L68 26 L68 46 C68 61 57 71 44 76 C31 71 20 61 20 46 L20 26 Z"
           fill="#0F172A" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round"/>
-    <!-- Magnifying Lens Ring inside shield -->
     <circle cx="42" cy="43" r="11" fill="none" stroke="#A5B4FC" stroke-width="2.5"/>
     <line x1="50" y1="51" x2="58" y2="59" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
-    <!-- Pulse / Triage Check inside lens -->
     <path d="M36 43 L40 47 L48 39" fill="none" stroke="#34D399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
-  <!-- Title & Tag badge -->
-  <text x="180" y="118" font-family="'Segoe UI', Inter, system-ui, sans-serif" font-size="46" font-weight="800" fill="#F8FAFC" letter-spacing="-0.5">
+  <!-- Title & FDE + Cybersecurity Badge -->
+  <text x="180" y="118" font-family="'Segoe UI', Inter, system-ui, sans-serif" font-size="45" font-weight="800" fill="#F8FAFC" letter-spacing="-0.5">
     Triage<tspan fill="#38BDF8">Lens</tspan>
   </text>
-  <rect x="445" y="88" width="154" height="32" rx="16" fill="#0F2942" stroke="#0284C7" stroke-width="1.5"/>
-  <text x="522" y="109" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#38BDF8">
-    OFFLINE-FIRST CLI
+  <rect x="438" y="88" width="214" height="32" rx="16" fill="#17203D" stroke="#6366F1" stroke-width="1.5"/>
+  <text x="545" y="109" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="13.5" font-weight="700" fill="#A5B4FC">
+    FDE + CYBERSECURITY
   </text>
 
-  <text x="180" y="150" font-family="'Segoe UI', Inter, system-ui, sans-serif" font-size="19" font-weight="500" fill="#94A3B8">
-    Deterministic &amp; AI-Assisted Security Alert Triage Engine
+  <text x="180" y="150" font-family="'Segoe UI', Inter, system-ui, sans-serif" font-size="17.5" font-weight="600" fill="#94A3B8">
+    Forward Deployed Engineering &amp; Bounded AI Alert Triage
   </text>
 
   <!-- Value Proposition Description -->
-  <text x="72" y="206" font-family="'Segoe UI', Inter, system-ui, sans-serif" font-size="15.5" fill="#CBD5E1">
-    Auditable JSONL alert triage across <tspan fill="#F8FAFC" font-weight="600">authentication</tspan>, <tspan fill="#F8FAFC" font-weight="600">process</tspan>, and <tspan fill="#F8FAFC" font-weight="600">network</tspan> telemetry
+  <text x="72" y="204" font-family="'Segoe UI', Inter, system-ui, sans-serif" font-size="15" fill="#CBD5E1">
+    Built for air-gapped &amp; high-trust FDE deployments: strict JSONL data contracts,
   </text>
-  <text x="72" y="232" font-family="'Segoe UI', Inter, system-ui, sans-serif" font-size="15.5" fill="#CBD5E1">
-    with escalation-only ML review and prompt-injection-safe local LLM summaries.
+  <text x="72" y="230" font-family="'Segoe UI', Inter, system-ui, sans-serif" font-size="15" fill="#CBD5E1">
+    deterministic triage rules, escalation-only ML, and injection-safe local LLM fallback.
   </text>
 
   <!-- 3 Architecture Pillar Cards (Left Side) -->
-  <!-- Card 1: Deterministic Policy -->
+  <!-- Card 1: FDE Data Contracts & Deterministic Policy -->
   <g transform="translate(72, 264)">
     <rect width="580" height="76" rx="12" fill="url(#cardGrad)" stroke="#1E293B" stroke-width="1.5"/>
     <rect x="0" y="0" width="6" height="76" rx="3" fill="#38BDF8"/>
-    <text x="24" y="30" font-family="'Segoe UI', Inter, sans-serif" font-size="17" font-weight="700" fill="#F8FAFC">
-      1. Deterministic Rules Baseline (demo-v1)
+    <text x="24" y="30" font-family="'Segoe UI', Inter, sans-serif" font-size="16.5" font-weight="700" fill="#F8FAFC">
+      1. FDE Data Contracts &amp; Deterministic Rules
     </text>
     <text x="435" y="30" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#38BDF8">
       --mode baseline
     </text>
-    <text x="24" y="55" font-family="'Segoe UI', Inter, sans-serif" font-size="14" fill="#94A3B8">
-      Zero third-party runtime deps &#8226; ~2,200 alerts/sec &#8226; 0.00% critical benign miss rate
+    <text x="24" y="55" font-family="'Segoe UI', Inter, sans-serif" font-size="13.5" fill="#94A3B8">
+      Fail-closed schema validation &#8226; Atomic staging &#8226; ~2,200 alerts/sec (0 deps)
     </text>
   </g>
 
@@ -90,14 +87,14 @@
   <g transform="translate(72, 354)">
     <rect width="580" height="76" rx="12" fill="url(#cardGrad)" stroke="#1E293B" stroke-width="1.5"/>
     <rect x="0" y="0" width="6" height="76" rx="3" fill="#A855F7"/>
-    <text x="24" y="30" font-family="'Segoe UI', Inter, sans-serif" font-size="17" font-weight="700" fill="#F8FAFC">
-      2. Escalation-Only Advisory Classifier (P5)
+    <text x="24" y="30" font-family="'Segoe UI', Inter, sans-serif" font-size="16.5" font-weight="700" fill="#F8FAFC">
+      2. Escalation-Only Advisory ML (Guardrailed)
     </text>
     <text x="435" y="30" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#C084FC">
       --mode ml
     </text>
-    <text x="24" y="55" font-family="'Segoe UI', Inter, sans-serif" font-size="14" fill="#94A3B8">
-      Verified JSON linear model &#8226; Escalates disagreements to needs_review &#8226; Never overrides rules
+    <text x="24" y="55" font-family="'Segoe UI', Inter, sans-serif" font-size="13.5" fill="#94A3B8">
+      Verified JSON linear model &#8226; Escalates disagreements to needs_review &#8226; No pickle
     </text>
   </g>
 
@@ -105,13 +102,13 @@
   <g transform="translate(72, 444)">
     <rect width="580" height="76" rx="12" fill="url(#cardGrad)" stroke="#1E293B" stroke-width="1.5"/>
     <rect x="0" y="0" width="6" height="76" rx="3" fill="#10B981"/>
-    <text x="24" y="30" font-family="'Segoe UI', Inter, sans-serif" font-size="17" font-weight="700" fill="#F8FAFC">
-      3. Contained Local Ollama Summarizer (P6)
+    <text x="24" y="30" font-family="'Segoe UI', Inter, sans-serif" font-size="16.5" font-weight="700" fill="#F8FAFC">
+      3. Contained Local LLM Summarizer (Loopback)
     </text>
     <text x="435" y="30" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#34D399">
       --mode ai
     </text>
-    <text x="24" y="55" font-family="'Segoe UI', Inter, sans-serif" font-size="14" fill="#94A3B8">
+    <text x="24" y="55" font-family="'Segoe UI', Inter, sans-serif" font-size="13.5" fill="#94A3B8">
       qwen2.5:1.5b via 127.0.0.1 &#8226; Strips untrusted source_text &#8226; Auto template fallback
     </text>
   </g>
@@ -131,7 +128,7 @@
     <text x="362" y="22" font-family="Consolas, monospace" font-size="14" font-weight="700" fill="#FCD34D">needs_review</text>
 
     <rect x="500" y="0" width="152" height="34" rx="8" fill="#1E293B" stroke="#64748B" stroke-width="1.2"/>
-    <text x="576" y="22" text-anchor="middle" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#E2E8F0">Python 3.13 CLI</text>
+    <text x="576" y="22" text-anchor="middle" font-family="Consolas, monospace" font-size="13" font-weight="700" fill="#E2E8F0">Offline-First</text>
   </g>
 
   <!-- ================= RIGHT COLUMN: TERMINAL PREVIEW WINDOW ================= -->

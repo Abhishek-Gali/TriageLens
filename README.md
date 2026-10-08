@@ -1,14 +1,25 @@
-# TriageLens: Offline-First & AI-Assisted Security Alert Triage CLI
+# TriageLens: Forward Deployed Engineering (FDE) + Cybersecurity Alert Triage CLI
 
 <p align="center">
-  <img src="assets/social_preview.svg" alt="TriageLens Architecture & CLI Preview" width="100%" />
+  <img src="assets/social_preview.svg" alt="TriageLens FDE + Cybersecurity Architecture & CLI Preview" width="100%" />
 </p>
 
-TriageLens is a local, offline-first batch CLI that ingests canonical security alerts in JSON Lines format (`schema_version: "1.0"`), validates and normalizes evidence, applies deterministic triage rules (`demo-v1`), and produces structured results (`results.jsonl`) plus an atomic run manifest (`run_report.json`).
+> **Project Positioning — Forward Deployed Engineering (`FDE`) + Cybersecurity:**  
+> **TriageLens** is an **FDE + Cybersecurity** systems engineering project, not a full-scale commercial SIEM or EDR appliance. It demonstrates how a Forward Deployed Engineer designs **reliable data contracts, fail-closed ingestion, auditable deterministic decision pipelines, and strictly bounded AI/LLM components** for high-trust or air-gapped security operations environments.
 
-Optional classical ML (`P5` `LogisticRegression` advisory classifier) and local LLM (`P6` Ollama `qwen2.5:1.5b` summarizer) components operate behind strict containment boundaries:
-- **Advisory ML (`P5`):** Can only escalate a decisive baseline verdict (`suspicious` or `likely_benign`) to `needs_review` (`classifier_disagreement`) while preserving `baseline_disposition`. It never promotes `needs_review` to a decisive disposition.
-- **Local LLM Summarizer (`P6`):** Receives only a sanitized `RestrictedEvidencePacket` (never raw `source_text`), cannot mutate any decision or rule field, and automatically falls back to deterministic `explain-v1` templates on timeout or validation failure.
+---
+
+## Why FDE + Cybersecurity?
+
+In real-world Forward Deployed Engineering engagements, customer telemetry is noisy, schemas drift, environments are often offline or restricted, and probabilistic AI models cannot be trusted to make autonomous security decisions. TriageLens solves this FDE integration challenge across three layered boundaries:
+
+1. **Strict FDE Data Contracts & Atomic Operations (`src/triagelens/`):**
+   - Streams canonical JSON Lines (`schema_version: "1.0"`), rejects malformed/duplicate-key/type-coerced payloads fail-closed (`invalid` records never silently become `likely_benign`), and finalizes batch outputs via atomic staging directories (`results.jsonl` + `run_report.json`).
+2. **Deterministic Domain Baseline (`--mode baseline`):**
+   - Evaluates versioned triage rules (`demo-v1`) across `authentication`, `process`, and `network` alert profiles with zero third-party runtime dependencies (`~2,200` alerts/sec) and explicit abstention (`needs_review`) when evidence is incomplete or contradictory.
+3. **Guardrailed AI Integration (`--mode ml` & `--mode ai`):**
+   - **Advisory ML (`P5` `LogisticRegression`):** Loaded from a verified JSON weight bundle (`models/triagelens_linear_v1.json` — no unsafe `pickle`/`joblib` execution). Can **only escalate** a decisive baseline verdict to `needs_review` (`classifier_disagreement`) while preserving `baseline_disposition`.
+   - **Contained Local LLM (`P6` Ollama `qwen2.5:1.5b`):** Runs strictly over local loopback (`http://127.0.0.1:11434`), receives only a sanitized `RestrictedEvidencePacket` (never untrusted `source_text`), cannot mutate any decision field, and falls back to deterministic `explain-v1` templates on timeout or validation failure.
 
 ---
 
