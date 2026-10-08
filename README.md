@@ -1,5 +1,9 @@
 # TriageLens: Offline-First & AI-Assisted Security Alert Triage CLI
 
+<p align="center">
+  <img src="assets/social_preview.svg" alt="TriageLens Architecture & CLI Preview" width="100%" />
+</p>
+
 TriageLens is a local, offline-first batch CLI that ingests canonical security alerts in JSON Lines format (`schema_version: "1.0"`), validates and normalizes evidence, applies deterministic triage rules (`demo-v1`), and produces structured results (`results.jsonl`) plus an atomic run manifest (`run_report.json`).
 
 Optional classical ML (`P5` `LogisticRegression` advisory classifier) and local LLM (`P6` Ollama `qwen2.5:1.5b` summarizer) components operate behind strict containment boundaries:
