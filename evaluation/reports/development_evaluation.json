@@ -1,0 +1,1949 @@
+{
+  "manifest": {
+    "benchmark_version": "benchmark-v1",
+    "created_at_utc": "2026-10-08T17:30:00Z",
+    "total_valid_alerts": 200,
+    "splits": {
+      "development": {
+        "count": 80,
+        "alerts_path": "evaluation/development/alerts.jsonl",
+        "alerts_sha256": "cb79600e38aa2a0651aa24dc1cb7931b7cc2fba83a81747dd2c1f23b3efa7c99",
+        "labels_path": "evaluation/development/labels.jsonl",
+        "labels_sha256": "5dc6ee7c5fb315dd2c1e43155ddf6bd1074b339055a839ada07e9b5b02a53fd4",
+        "scenario_families": [
+          "DEV-AUTH-AMB-05",
+          "DEV-AUTH-BF-01",
+          "DEV-AUTH-ROT-02",
+          "DEV-AUTH-SLOW-03",
+          "DEV-AUTH-SSO-04",
+          "DEV-NET-C2-01",
+          "DEV-NET-SAAS-03",
+          "DEV-NET-STALE-02",
+          "DEV-NET-UNCAT-04",
+          "DEV-PROC-CORP-03",
+          "DEV-PROC-DEVBUILD-02",
+          "DEV-PROC-DROP-01",
+          "DEV-PROC-UNAPP-04",
+          "DEV-UNC-01"
+        ],
+        "template_lineages": [
+          "lin-dev-auth-corp-sso",
+          "lin-dev-auth-service-rotation",
+          "lin-dev-auth-slow-stuffing",
+          "lin-dev-auth-ssh-bruteforce",
+          "lin-dev-auth-unapproved-roaming",
+          "lin-dev-net-approved-telemetry",
+          "lin-dev-net-blocklist-beacon",
+          "lin-dev-net-stale-cdn-blocklist",
+          "lin-dev-net-uncategorized-ext",
+          "lin-dev-proc-local-compiler",
+          "lin-dev-proc-managed-agent",
+          "lin-dev-proc-temp-dropper",
+          "lin-dev-proc-thirdparty-signed",
+          "lin-dev-unc-missing-and-conflicts"
+        ]
+      },
+      "holdout": {
+        "count": 120,
+        "alerts_path": "evaluation/holdout/alerts.jsonl",
+        "alerts_sha256": "60da4e153c260fa0917d88f0a584b055a6f02e358b80a1435c89ce24ff58810d",
+        "labels_path": "evaluation/holdout/labels.jsonl",
+        "labels_sha256": "54f9786c6d618374be89f384f76f22a8de06d2b525ffe89d1d4ffa97aecacc5f",
+        "scenario_families": [
+          "HOLD-AUTH-BATCH-02",
+          "HOLD-AUTH-BORDER-05",
+          "HOLD-AUTH-LOWSLOW-03",
+          "HOLD-AUTH-SPRAY-01",
+          "HOLD-AUTH-WORK-04",
+          "HOLD-NET-BOT-01",
+          "HOLD-NET-REPO-03",
+          "HOLD-NET-REUSEDIP-02",
+          "HOLD-NET-UNKNOWN-04",
+          "HOLD-PROC-GRAY-04",
+          "HOLD-PROC-LABTOOL-02",
+          "HOLD-PROC-STAGE-01",
+          "HOLD-PROC-SYS-03",
+          "HOLD-UNC-01"
+        ],
+        "template_lineages": [
+          "lin-hold-auth-legacy-cron",
+          "lin-hold-auth-paced-intrusion",
+          "lin-hold-auth-vpn-spray",
+          "lin-hold-auth-window-and-unapproved",
+          "lin-hold-auth-workstation-unlock",
+          "lin-hold-net-approved-mirror",
+          "lin-hold-net-malware-callback",
+          "lin-hold-net-reallocated-cloud-ip",
+          "lin-hold-net-unlisted-partner",
+          "lin-hold-proc-appdata-stage",
+          "lin-hold-proc-qa-harness",
+          "lin-hold-proc-signed-system",
+          "lin-hold-proc-unapproved-vendor",
+          "lin-hold-unc-incomplete-and-conflict"
+        ]
+      },
+      "robustness": {
+        "count": 11,
+        "path": "evaluation/robustness/malformed_and_hostile.jsonl",
+        "sha256": "b4a8ceb5ba1dd60701b6426b77c6f04a155626d73b502c8ef3e526c6ce2d5b57"
+      }
+    },
+    "leakage_audit": {
+      "alert_id_overlap_count": 0,
+      "scenario_family_overlap_count": 0,
+      "template_lineage_overlap_count": 0,
+      "public_examples_overlap_count": 0,
+      "inference_label_fields_present": false,
+      "status": "passed"
+    }
+  },
+  "leakage_audit": {
+    "status": "passed",
+    "runtime_imports_evaluation": false,
+    "forbidden_keys_in_inference_records": [],
+    "dev_alert_count": 80,
+    "holdout_alert_count": 120,
+    "alert_id_overlap_count": 0,
+    "scenario_family_overlap_count": 0,
+    "template_lineage_overlap_count": 0
+  },
+  "determinism_probe": {
+    "three_runs_semantically_identical": true,
+    "runs": [
+      {
+        "batch_wall_ms": 37.343,
+        "records_per_second": 2142.31,
+        "median_record_ms": 0.2208,
+        "p95_record_ms": 0.3539,
+        "p99_record_ms": 0.7414,
+        "peak_traced_memory_mib": 0.0684
+      },
+      {
+        "batch_wall_ms": 36.32,
+        "records_per_second": 2202.66,
+        "median_record_ms": 0.2188,
+        "p95_record_ms": 0.3583,
+        "p99_record_ms": 0.4772,
+        "peak_traced_memory_mib": 0.0658
+      },
+      {
+        "batch_wall_ms": 37.062,
+        "records_per_second": 2158.54,
+        "median_record_ms": 0.2205,
+        "p95_record_ms": 0.3718,
+        "p99_record_ms": 0.482,
+        "peak_traced_memory_mib": 0.0599
+      }
+    ],
+    "summary": {
+      "min_batch_wall_ms": 36.32,
+      "max_batch_wall_ms": 37.343,
+      "max_p99_record_ms": 0.7414,
+      "max_peak_traced_memory_mib": 0.0684
+    }
+  },
+  "robustness_report": {
+    "report_schema_version": "1.0",
+    "run_id": "run-7c07f025db31",
+    "completion_state": "complete",
+    "failure_reason": null,
+    "started_at_utc": "2026-10-08T17:42:58Z",
+    "finished_at_utc": "2026-10-08T17:42:58Z",
+    "provenance": {
+      "input_logical_name": "malformed_and_hostile.jsonl",
+      "input_sha256": "b4a8ceb5ba1dd60701b6426b77c6f04a155626d73b502c8ef3e526c6ce2d5b57",
+      "application_version": "0.1.0-demo",
+      "schema_version": "1.0",
+      "result_schema_version": "1.0",
+      "normalizer_version": "norm-v1",
+      "ruleset_id": "demo-v1",
+      "ruleset_sha256": "56ca0325f0d92be43f38834bdd5df4841968cb2b730e805f76c00781171308e9",
+      "ruleset_review_status": "unvalidated_demo",
+      "policy_version": "policy-v1",
+      "explain_version": "explain-v1",
+      "config_sha256": "2d1856b0615fdfe6c55a4f1f38fa699f4d2d5f7574e234c5af78fe6b9e75d296",
+      "optional_mode": "permissive",
+      "enable_classifier": false,
+      "enable_summarizer": false
+    },
+    "counts": {
+      "total_lines": 11,
+      "accepted": 1,
+      "invalid": 10,
+      "failed": 0
+    },
+    "baseline_dispositions": {
+      "suspicious": 1,
+      "likely_benign": 0,
+      "needs_review": 0
+    },
+    "dispositions": {
+      "suspicious": 1,
+      "likely_benign": 0,
+      "needs_review": 0
+    },
+    "review_reasons": {},
+    "error_codes": {
+      "duplicate_alert_id": 1,
+      "duplicate_json_key": 1,
+      "empty_record": 1,
+      "forbidden_field": 1,
+      "invalid_timestamp": 1,
+      "invalid_type": 3,
+      "malformed_json": 1,
+      "unsupported_family": 1
+    },
+    "optional_components": {
+      "classifier_states": {
+        "disabled": 1
+      },
+      "summary_sources": {
+        "template": 1
+      },
+      "summary_validation_states": {
+        "valid": 1
+      }
+    },
+    "runtime_metrics": {
+      "batch_wall_ms": 3.677,
+      "records_per_second": 2991.65,
+      "median_record_ms": 0.0873,
+      "p95_record_ms": 0.2312,
+      "p99_record_ms": 0.2312,
+      "peak_traced_memory_mib": 0.0335
+    }
+  },
+  "development_evaluation": {
+    "batch_report": {
+      "report_schema_version": "1.0",
+      "run_id": "run-d078148b45bc",
+      "completion_state": "complete",
+      "failure_reason": null,
+      "started_at_utc": "2026-10-08T17:42:58Z",
+      "finished_at_utc": "2026-10-08T17:42:58Z",
+      "provenance": {
+        "input_logical_name": "alerts.jsonl",
+        "input_sha256": "cb79600e38aa2a0651aa24dc1cb7931b7cc2fba83a81747dd2c1f23b3efa7c99",
+        "application_version": "0.1.0-demo",
+        "schema_version": "1.0",
+        "result_schema_version": "1.0",
+        "normalizer_version": "norm-v1",
+        "ruleset_id": "demo-v1",
+        "ruleset_sha256": "56ca0325f0d92be43f38834bdd5df4841968cb2b730e805f76c00781171308e9",
+        "ruleset_review_status": "unvalidated_demo",
+        "policy_version": "policy-v1",
+        "explain_version": "explain-v1",
+        "config_sha256": "2d1856b0615fdfe6c55a4f1f38fa699f4d2d5f7574e234c5af78fe6b9e75d296",
+        "optional_mode": "permissive",
+        "enable_classifier": false,
+        "enable_summarizer": false
+      },
+      "counts": {
+        "total_lines": 80,
+        "accepted": 80,
+        "invalid": 0,
+        "failed": 0
+      },
+      "baseline_dispositions": {
+        "suspicious": 24,
+        "likely_benign": 24,
+        "needs_review": 32
+      },
+      "dispositions": {
+        "suspicious": 24,
+        "likely_benign": 24,
+        "needs_review": 32
+      },
+      "review_reasons": {
+        "contradictory_evidence": 1,
+        "missing_evidence": 3,
+        "no_decisive_rule": 24,
+        "policy_conflict": 1,
+        "unsupported_pattern": 3
+      },
+      "error_codes": {},
+      "optional_components": {
+        "classifier_states": {
+          "disabled": 80
+        },
+        "summary_sources": {
+          "template": 80
+        },
+        "summary_validation_states": {
+          "valid": 80
+        }
+      },
+      "runtime_metrics": {
+        "batch_wall_ms": 35.782,
+        "records_per_second": 2235.76,
+        "median_record_ms": 0.2153,
+        "p95_record_ms": 0.4062,
+        "p99_record_ms": 0.4401,
+        "peak_traced_memory_mib": 0.0641
+      }
+    },
+    "overall": {
+      "eligible_population": 80,
+      "accepted_count": 80,
+      "invalid_or_failed_count": 0,
+      "confusion_matrix": {
+        "suspicious": {
+          "suspicious": 21,
+          "likely_benign": 0,
+          "needs_review": 2,
+          "invalid_or_failed": 0
+        },
+        "likely_benign": {
+          "suspicious": 0,
+          "likely_benign": 24,
+          "needs_review": 0,
+          "invalid_or_failed": 0
+        },
+        "needs_review": {
+          "suspicious": 3,
+          "likely_benign": 0,
+          "needs_review": 30,
+          "invalid_or_failed": 0
+        }
+      },
+      "metrics": {
+        "suspicious_precision": {
+          "numerator": 21,
+          "denominator": 24,
+          "rate": 0.875,
+          "percentage": "87.50%"
+        },
+        "suspicious_recall": {
+          "numerator": 21,
+          "denominator": 23,
+          "rate": 0.913043,
+          "percentage": "91.30%"
+        },
+        "critical_benign_miss_rate": {
+          "numerator": 0,
+          "denominator": 23,
+          "rate": 0.0,
+          "percentage": "0.00%"
+        },
+        "decisive_coverage": {
+          "numerator": 48,
+          "denominator": 80,
+          "rate": 0.6,
+          "percentage": "60.00%"
+        },
+        "selective_error": {
+          "numerator": 3,
+          "denominator": 48,
+          "rate": 0.0625,
+          "percentage": "6.25%"
+        },
+        "review_rate": {
+          "numerator": 32,
+          "denominator": 80,
+          "rate": 0.4,
+          "percentage": "40.00%"
+        },
+        "processing_success": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0,
+          "percentage": "100.00%"
+        }
+      },
+      "review_reason_distribution": {
+        "contradictory_evidence": 1,
+        "missing_evidence": 3,
+        "no_decisive_rule": 24,
+        "policy_conflict": 1,
+        "unsupported_pattern": 3
+      }
+    },
+    "slices": {
+      "by_family": {
+        "authentication": {
+          "eligible_population": 27,
+          "accepted_count": 27,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 7,
+              "likely_benign": 0,
+              "needs_review": 2,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 8,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 9,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 7,
+              "denominator": 8,
+              "rate": 0.875,
+              "percentage": "87.50%"
+            },
+            "suspicious_recall": {
+              "numerator": 7,
+              "denominator": 9,
+              "rate": 0.777778,
+              "percentage": "77.78%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 9,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 16,
+              "denominator": 27,
+              "rate": 0.592593,
+              "percentage": "59.26%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 16,
+              "rate": 0.0625,
+              "percentage": "6.25%"
+            },
+            "review_rate": {
+              "numerator": 11,
+              "denominator": 27,
+              "rate": 0.407407,
+              "percentage": "40.74%"
+            },
+            "processing_success": {
+              "numerator": 27,
+              "denominator": 27,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "missing_evidence": 2,
+            "no_decisive_rule": 8,
+            "unsupported_pattern": 1
+          }
+        },
+        "process": {
+          "eligible_population": 27,
+          "accepted_count": 27,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 7,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 8,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 11,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 7,
+              "denominator": 8,
+              "rate": 0.875,
+              "percentage": "87.50%"
+            },
+            "suspicious_recall": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 16,
+              "denominator": 27,
+              "rate": 0.592593,
+              "percentage": "59.26%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 16,
+              "rate": 0.0625,
+              "percentage": "6.25%"
+            },
+            "review_rate": {
+              "numerator": 11,
+              "denominator": 27,
+              "rate": 0.407407,
+              "percentage": "40.74%"
+            },
+            "processing_success": {
+              "numerator": 27,
+              "denominator": 27,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "missing_evidence": 1,
+            "no_decisive_rule": 8,
+            "policy_conflict": 1,
+            "unsupported_pattern": 1
+          }
+        },
+        "network": {
+          "eligible_population": 26,
+          "accepted_count": 26,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 7,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 8,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 10,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 7,
+              "denominator": 8,
+              "rate": 0.875,
+              "percentage": "87.50%"
+            },
+            "suspicious_recall": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 16,
+              "denominator": 26,
+              "rate": 0.615385,
+              "percentage": "61.54%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 16,
+              "rate": 0.0625,
+              "percentage": "6.25%"
+            },
+            "review_rate": {
+              "numerator": 10,
+              "denominator": 26,
+              "rate": 0.384615,
+              "percentage": "38.46%"
+            },
+            "processing_success": {
+              "numerator": 26,
+              "denominator": 26,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "contradictory_evidence": 1,
+            "no_decisive_rule": 8,
+            "unsupported_pattern": 1
+          }
+        }
+      },
+      "by_slice_category": {
+        "authentication": {
+          "eligible_population": 24,
+          "accepted_count": 24,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 7,
+              "likely_benign": 0,
+              "needs_review": 2,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 8,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 6,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 7,
+              "denominator": 8,
+              "rate": 0.875,
+              "percentage": "87.50%"
+            },
+            "suspicious_recall": {
+              "numerator": 7,
+              "denominator": 9,
+              "rate": 0.777778,
+              "percentage": "77.78%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 9,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 16,
+              "denominator": 24,
+              "rate": 0.666667,
+              "percentage": "66.67%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 16,
+              "rate": 0.0625,
+              "percentage": "6.25%"
+            },
+            "review_rate": {
+              "numerator": 8,
+              "denominator": 24,
+              "rate": 0.333333,
+              "percentage": "33.33%"
+            },
+            "processing_success": {
+              "numerator": 24,
+              "denominator": 24,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 8
+          }
+        },
+        "process": {
+          "eligible_population": 24,
+          "accepted_count": 24,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 7,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 8,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 8,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 7,
+              "denominator": 8,
+              "rate": 0.875,
+              "percentage": "87.50%"
+            },
+            "suspicious_recall": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 16,
+              "denominator": 24,
+              "rate": 0.666667,
+              "percentage": "66.67%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 16,
+              "rate": 0.0625,
+              "percentage": "6.25%"
+            },
+            "review_rate": {
+              "numerator": 8,
+              "denominator": 24,
+              "rate": 0.333333,
+              "percentage": "33.33%"
+            },
+            "processing_success": {
+              "numerator": 24,
+              "denominator": 24,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 8
+          }
+        },
+        "network": {
+          "eligible_population": 24,
+          "accepted_count": 24,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 7,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 8,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 8,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 7,
+              "denominator": 8,
+              "rate": 0.875,
+              "percentage": "87.50%"
+            },
+            "suspicious_recall": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 16,
+              "denominator": 24,
+              "rate": 0.666667,
+              "percentage": "66.67%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 16,
+              "rate": 0.0625,
+              "percentage": "6.25%"
+            },
+            "review_rate": {
+              "numerator": 8,
+              "denominator": 24,
+              "rate": 0.333333,
+              "percentage": "33.33%"
+            },
+            "processing_success": {
+              "numerator": 24,
+              "denominator": 24,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 8
+          }
+        },
+        "uncertainty": {
+          "eligible_population": 8,
+          "accepted_count": 8,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 8,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "contradictory_evidence": 1,
+            "missing_evidence": 3,
+            "policy_conflict": 1,
+            "unsupported_pattern": 3
+          }
+        }
+      },
+      "by_scenario_family": {
+        "DEV-AUTH-AMB-05": {
+          "eligible_population": 6,
+          "accepted_count": 6,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 6,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 6,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 6,
+              "denominator": 6,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 6,
+              "denominator": 6,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 6
+          }
+        },
+        "DEV-AUTH-BF-01": {
+          "eligible_population": 7,
+          "accepted_count": 7,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 7,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "DEV-AUTH-ROT-02": {
+          "eligible_population": 1,
+          "accepted_count": 1,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "DEV-AUTH-SLOW-03": {
+          "eligible_population": 2,
+          "accepted_count": 2,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 2,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 2,
+              "denominator": 2,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 2,
+              "denominator": 2,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 2
+          }
+        },
+        "DEV-AUTH-SSO-04": {
+          "eligible_population": 8,
+          "accepted_count": 8,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 8,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "DEV-NET-C2-01": {
+          "eligible_population": 7,
+          "accepted_count": 7,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 7,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "DEV-NET-SAAS-03": {
+          "eligible_population": 8,
+          "accepted_count": 8,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 8,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "DEV-NET-STALE-02": {
+          "eligible_population": 1,
+          "accepted_count": 1,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "DEV-NET-UNCAT-04": {
+          "eligible_population": 8,
+          "accepted_count": 8,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 8,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 8
+          }
+        },
+        "DEV-PROC-CORP-03": {
+          "eligible_population": 8,
+          "accepted_count": 8,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 8,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "DEV-PROC-DEVBUILD-02": {
+          "eligible_population": 1,
+          "accepted_count": 1,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "DEV-PROC-DROP-01": {
+          "eligible_population": 7,
+          "accepted_count": 7,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 7,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 7,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 7,
+              "denominator": 7,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "DEV-PROC-UNAPP-04": {
+          "eligible_population": 8,
+          "accepted_count": 8,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 8,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 8
+          }
+        },
+        "DEV-UNC-01": {
+          "eligible_population": 8,
+          "accepted_count": 8,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 8,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 8,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 8,
+              "denominator": 8,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "contradictory_evidence": 1,
+            "missing_evidence": 3,
+            "policy_conflict": 1,
+            "unsupported_pattern": 3
+          }
+        }
+      }
+    },
+    "disagreements": [
+      {
+        "alert_id": "dev-auth-008",
+        "family": "authentication",
+        "event_name": "login_sequence",
+        "scenario_family_id": "DEV-AUTH-ROT-02",
+        "underlying_scenario_state": "benign",
+        "expected_disposition": "needs_review",
+        "predicted_disposition": "suspicious",
+        "matched_rule_ids": [
+          "AUTH-S01"
+        ],
+        "review_reasons": [],
+        "rationale": "Counterexample: automated staging service retry burst after credential rotation; requires analyst review rather than immediate suspicious verdict."
+      },
+      {
+        "alert_id": "dev-auth-009",
+        "family": "authentication",
+        "event_name": "login_sequence",
+        "scenario_family_id": "DEV-AUTH-SLOW-03",
+        "underlying_scenario_state": "malicious",
+        "expected_disposition": "suspicious",
+        "predicted_disposition": "needs_review",
+        "matched_rule_ids": [],
+        "review_reasons": [
+          "no_decisive_rule"
+        ],
+        "rationale": "Counterexample: paced credential stuffing (8 failures in 210s from unapproved origin followed by login) just below static AUTH-S01 threshold of 10."
+      },
+      {
+        "alert_id": "dev-auth-010",
+        "family": "authentication",
+        "event_name": "login_sequence",
+        "scenario_family_id": "DEV-AUTH-SLOW-03",
+        "underlying_scenario_state": "malicious",
+        "expected_disposition": "suspicious",
+        "predicted_disposition": "needs_review",
+        "matched_rule_ids": [],
+        "review_reasons": [
+          "no_decisive_rule"
+        ],
+        "rationale": "Counterexample: paced credential stuffing (9 failures in 210s from unapproved origin followed by login) just below static AUTH-S01 threshold of 10."
+      },
+      {
+        "alert_id": "dev-proc-008",
+        "family": "process",
+        "event_name": "process_start",
+        "scenario_family_id": "DEV-PROC-DEVBUILD-02",
+        "underlying_scenario_state": "benign",
+        "expected_disposition": "needs_review",
+        "predicted_disposition": "suspicious",
+        "matched_rule_ids": [
+          "PROC-S01"
+        ],
+        "review_reasons": [],
+        "rationale": "Counterexample: local developer build binary in user-writable folder; static PROC-S01 cannot distinguish developer build from dropper without host/lineage context."
+      },
+      {
+        "alert_id": "dev-net-008",
+        "family": "network",
+        "event_name": "connection_summary",
+        "scenario_family_id": "DEV-NET-STALE-02",
+        "underlying_scenario_state": "benign",
+        "expected_disposition": "needs_review",
+        "predicted_disposition": "suspicious",
+        "matched_rule_ids": [
+          "NET-S01"
+        ],
+        "review_reasons": [],
+        "rationale": "Counterexample: stale blocklist hit on reallocated cloud/CDN IP; NET-S01 lacks feed-age telemetry and flags as suspicious."
+      }
+    ]
+  }
+}

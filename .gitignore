@@ -1,0 +1,139 @@
+# =============================================================================
+# 1. Initial Planning & Specification Markdown Files (Keep README.md Tracked)
+# =============================================================================
+/AGENTS.md
+/ARCHITECTURE.md
+/DESIGN.md
+/DOMAIN_REVIEW.md
+/EVALUATION.md
+/EXAMPLES.md
+/HANDOFF.md
+/implementation_plan.md
+/RELEASE_GATES.md
+/RULE_CATALOGUE.md
+/SECURITY.md
+/TRACEABILITY.md
+!/README.md
+
+# =============================================================================
+# 2. Python Virtual Environments & Bytecode
+# =============================================================================
+.venv/
+venv/
+env/
+.env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+.Python
+.python-version
+
+# =============================================================================
+# 3. Packaging, Build & Distribution Artifacts
+# =============================================================================
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
+
+# =============================================================================
+# 4. Testing, Coverage & Type/Lint Caches
+# =============================================================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# =============================================================================
+# 5. TriageLens Local Run Outputs, Staging Directories & Logs
+# =============================================================================
+runs/
+*.staging.*/
+*.log
+logs/
+tmp/
+temp/
+scratch/
+
+# =============================================================================
+# 6. Binary / Unsafe ML & Local LLM Weights (Keep Verified JSON Model Tracked)
+# =============================================================================
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+*.gguf
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.h5
+!models/triagelens_linear_v1.json
+
+# =============================================================================
+# 7. Secrets, Credentials & Local Environment Overrides
+# =============================================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+*.crt
+credentials.json
+secrets.json
+secrets.yaml
+
+# =============================================================================
+# 8. IDEs, Editors, Agent Directories & OS Metadata
+# =============================================================================
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.gemini/
+.antigravity/
+.cursor/
+.claude/
+.ipynb_checkpoints/

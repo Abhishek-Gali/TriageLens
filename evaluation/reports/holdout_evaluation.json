@@ -1,0 +1,1879 @@
+{
+  "manifest": {
+    "benchmark_version": "benchmark-v1",
+    "created_at_utc": "2026-10-08T17:30:00Z",
+    "total_valid_alerts": 200,
+    "splits": {
+      "development": {
+        "count": 80,
+        "alerts_path": "evaluation/development/alerts.jsonl",
+        "alerts_sha256": "cb79600e38aa2a0651aa24dc1cb7931b7cc2fba83a81747dd2c1f23b3efa7c99",
+        "labels_path": "evaluation/development/labels.jsonl",
+        "labels_sha256": "5dc6ee7c5fb315dd2c1e43155ddf6bd1074b339055a839ada07e9b5b02a53fd4",
+        "scenario_families": [
+          "DEV-AUTH-AMB-05",
+          "DEV-AUTH-BF-01",
+          "DEV-AUTH-ROT-02",
+          "DEV-AUTH-SLOW-03",
+          "DEV-AUTH-SSO-04",
+          "DEV-NET-C2-01",
+          "DEV-NET-SAAS-03",
+          "DEV-NET-STALE-02",
+          "DEV-NET-UNCAT-04",
+          "DEV-PROC-CORP-03",
+          "DEV-PROC-DEVBUILD-02",
+          "DEV-PROC-DROP-01",
+          "DEV-PROC-UNAPP-04",
+          "DEV-UNC-01"
+        ],
+        "template_lineages": [
+          "lin-dev-auth-corp-sso",
+          "lin-dev-auth-service-rotation",
+          "lin-dev-auth-slow-stuffing",
+          "lin-dev-auth-ssh-bruteforce",
+          "lin-dev-auth-unapproved-roaming",
+          "lin-dev-net-approved-telemetry",
+          "lin-dev-net-blocklist-beacon",
+          "lin-dev-net-stale-cdn-blocklist",
+          "lin-dev-net-uncategorized-ext",
+          "lin-dev-proc-local-compiler",
+          "lin-dev-proc-managed-agent",
+          "lin-dev-proc-temp-dropper",
+          "lin-dev-proc-thirdparty-signed",
+          "lin-dev-unc-missing-and-conflicts"
+        ]
+      },
+      "holdout": {
+        "count": 120,
+        "alerts_path": "evaluation/holdout/alerts.jsonl",
+        "alerts_sha256": "60da4e153c260fa0917d88f0a584b055a6f02e358b80a1435c89ce24ff58810d",
+        "labels_path": "evaluation/holdout/labels.jsonl",
+        "labels_sha256": "54f9786c6d618374be89f384f76f22a8de06d2b525ffe89d1d4ffa97aecacc5f",
+        "scenario_families": [
+          "HOLD-AUTH-BATCH-02",
+          "HOLD-AUTH-BORDER-05",
+          "HOLD-AUTH-LOWSLOW-03",
+          "HOLD-AUTH-SPRAY-01",
+          "HOLD-AUTH-WORK-04",
+          "HOLD-NET-BOT-01",
+          "HOLD-NET-REPO-03",
+          "HOLD-NET-REUSEDIP-02",
+          "HOLD-NET-UNKNOWN-04",
+          "HOLD-PROC-GRAY-04",
+          "HOLD-PROC-LABTOOL-02",
+          "HOLD-PROC-STAGE-01",
+          "HOLD-PROC-SYS-03",
+          "HOLD-UNC-01"
+        ],
+        "template_lineages": [
+          "lin-hold-auth-legacy-cron",
+          "lin-hold-auth-paced-intrusion",
+          "lin-hold-auth-vpn-spray",
+          "lin-hold-auth-window-and-unapproved",
+          "lin-hold-auth-workstation-unlock",
+          "lin-hold-net-approved-mirror",
+          "lin-hold-net-malware-callback",
+          "lin-hold-net-reallocated-cloud-ip",
+          "lin-hold-net-unlisted-partner",
+          "lin-hold-proc-appdata-stage",
+          "lin-hold-proc-qa-harness",
+          "lin-hold-proc-signed-system",
+          "lin-hold-proc-unapproved-vendor",
+          "lin-hold-unc-incomplete-and-conflict"
+        ]
+      },
+      "robustness": {
+        "count": 11,
+        "path": "evaluation/robustness/malformed_and_hostile.jsonl",
+        "sha256": "b4a8ceb5ba1dd60701b6426b77c6f04a155626d73b502c8ef3e526c6ce2d5b57"
+      }
+    },
+    "leakage_audit": {
+      "alert_id_overlap_count": 0,
+      "scenario_family_overlap_count": 0,
+      "template_lineage_overlap_count": 0,
+      "public_examples_overlap_count": 0,
+      "inference_label_fields_present": false,
+      "status": "passed"
+    }
+  },
+  "leakage_audit": {
+    "status": "passed",
+    "runtime_imports_evaluation": false,
+    "forbidden_keys_in_inference_records": [],
+    "dev_alert_count": 80,
+    "holdout_alert_count": 120,
+    "alert_id_overlap_count": 0,
+    "scenario_family_overlap_count": 0,
+    "template_lineage_overlap_count": 0
+  },
+  "determinism_probe": {
+    "three_runs_semantically_identical": true,
+    "runs": [
+      {
+        "batch_wall_ms": 54.1,
+        "records_per_second": 2218.1,
+        "median_record_ms": 0.2159,
+        "p95_record_ms": 0.327,
+        "p99_record_ms": 0.589,
+        "peak_traced_memory_mib": 0.0749
+      },
+      {
+        "batch_wall_ms": 54.176,
+        "records_per_second": 2215.01,
+        "median_record_ms": 0.2195,
+        "p95_record_ms": 0.3461,
+        "p99_record_ms": 0.5271,
+        "peak_traced_memory_mib": 0.0635
+      },
+      {
+        "batch_wall_ms": 53.802,
+        "records_per_second": 2230.39,
+        "median_record_ms": 0.2242,
+        "p95_record_ms": 0.3263,
+        "p99_record_ms": 0.3933,
+        "peak_traced_memory_mib": 0.0633
+      }
+    ],
+    "summary": {
+      "min_batch_wall_ms": 53.802,
+      "max_batch_wall_ms": 54.176,
+      "max_p99_record_ms": 0.589,
+      "max_peak_traced_memory_mib": 0.0749
+    }
+  },
+  "holdout_evaluation": {
+    "batch_report": {
+      "report_schema_version": "1.0",
+      "run_id": "run-58bd4c93ae77",
+      "completion_state": "complete",
+      "failure_reason": null,
+      "started_at_utc": "2026-10-08T17:42:58Z",
+      "finished_at_utc": "2026-10-08T17:42:58Z",
+      "provenance": {
+        "input_logical_name": "alerts.jsonl",
+        "input_sha256": "60da4e153c260fa0917d88f0a584b055a6f02e358b80a1435c89ce24ff58810d",
+        "application_version": "0.1.0-demo",
+        "schema_version": "1.0",
+        "result_schema_version": "1.0",
+        "normalizer_version": "norm-v1",
+        "ruleset_id": "demo-v1",
+        "ruleset_sha256": "56ca0325f0d92be43f38834bdd5df4841968cb2b730e805f76c00781171308e9",
+        "ruleset_review_status": "unvalidated_demo",
+        "policy_version": "policy-v1",
+        "explain_version": "explain-v1",
+        "config_sha256": "2d1856b0615fdfe6c55a4f1f38fa699f4d2d5f7574e234c5af78fe6b9e75d296",
+        "optional_mode": "permissive",
+        "enable_classifier": false,
+        "enable_summarizer": false
+      },
+      "counts": {
+        "total_lines": 120,
+        "accepted": 120,
+        "invalid": 0,
+        "failed": 0
+      },
+      "baseline_dispositions": {
+        "suspicious": 36,
+        "likely_benign": 36,
+        "needs_review": 48
+      },
+      "dispositions": {
+        "suspicious": 36,
+        "likely_benign": 36,
+        "needs_review": 48
+      },
+      "review_reasons": {
+        "contradictory_evidence": 1,
+        "missing_evidence": 7,
+        "no_decisive_rule": 36,
+        "policy_conflict": 1,
+        "unsupported_pattern": 3
+      },
+      "error_codes": {},
+      "optional_components": {
+        "classifier_states": {
+          "disabled": 120
+        },
+        "summary_sources": {
+          "template": 120
+        },
+        "summary_validation_states": {
+          "valid": 120
+        }
+      },
+      "runtime_metrics": {
+        "batch_wall_ms": 55.702,
+        "records_per_second": 2154.34,
+        "median_record_ms": 0.2179,
+        "p95_record_ms": 0.4101,
+        "p99_record_ms": 0.4631,
+        "peak_traced_memory_mib": 0.0767
+      }
+    },
+    "overall": {
+      "eligible_population": 120,
+      "accepted_count": 120,
+      "invalid_or_failed_count": 0,
+      "confusion_matrix": {
+        "suspicious": {
+          "suspicious": 33,
+          "likely_benign": 0,
+          "needs_review": 2,
+          "invalid_or_failed": 0
+        },
+        "likely_benign": {
+          "suspicious": 0,
+          "likely_benign": 36,
+          "needs_review": 0,
+          "invalid_or_failed": 0
+        },
+        "needs_review": {
+          "suspicious": 3,
+          "likely_benign": 0,
+          "needs_review": 46,
+          "invalid_or_failed": 0
+        }
+      },
+      "metrics": {
+        "suspicious_precision": {
+          "numerator": 33,
+          "denominator": 36,
+          "rate": 0.916667,
+          "percentage": "91.67%"
+        },
+        "suspicious_recall": {
+          "numerator": 33,
+          "denominator": 35,
+          "rate": 0.942857,
+          "percentage": "94.29%"
+        },
+        "critical_benign_miss_rate": {
+          "numerator": 0,
+          "denominator": 35,
+          "rate": 0.0,
+          "percentage": "0.00%"
+        },
+        "decisive_coverage": {
+          "numerator": 72,
+          "denominator": 120,
+          "rate": 0.6,
+          "percentage": "60.00%"
+        },
+        "selective_error": {
+          "numerator": 3,
+          "denominator": 72,
+          "rate": 0.041667,
+          "percentage": "4.17%"
+        },
+        "review_rate": {
+          "numerator": 48,
+          "denominator": 120,
+          "rate": 0.4,
+          "percentage": "40.00%"
+        },
+        "processing_success": {
+          "numerator": 120,
+          "denominator": 120,
+          "rate": 1.0,
+          "percentage": "100.00%"
+        }
+      },
+      "review_reason_distribution": {
+        "contradictory_evidence": 1,
+        "missing_evidence": 7,
+        "no_decisive_rule": 36,
+        "policy_conflict": 1,
+        "unsupported_pattern": 3
+      }
+    },
+    "slices": {
+      "by_family": {
+        "authentication": {
+          "eligible_population": 40,
+          "accepted_count": 40,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 11,
+              "likely_benign": 0,
+              "needs_review": 2,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 12,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 14,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 11,
+              "denominator": 12,
+              "rate": 0.916667,
+              "percentage": "91.67%"
+            },
+            "suspicious_recall": {
+              "numerator": 11,
+              "denominator": 13,
+              "rate": 0.846154,
+              "percentage": "84.62%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 13,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 24,
+              "denominator": 40,
+              "rate": 0.6,
+              "percentage": "60.00%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 24,
+              "rate": 0.041667,
+              "percentage": "4.17%"
+            },
+            "review_rate": {
+              "numerator": 16,
+              "denominator": 40,
+              "rate": 0.4,
+              "percentage": "40.00%"
+            },
+            "processing_success": {
+              "numerator": 40,
+              "denominator": 40,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "missing_evidence": 3,
+            "no_decisive_rule": 12,
+            "unsupported_pattern": 1
+          }
+        },
+        "process": {
+          "eligible_population": 40,
+          "accepted_count": 40,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 11,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 12,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 16,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 11,
+              "denominator": 12,
+              "rate": 0.916667,
+              "percentage": "91.67%"
+            },
+            "suspicious_recall": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 24,
+              "denominator": 40,
+              "rate": 0.6,
+              "percentage": "60.00%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 24,
+              "rate": 0.041667,
+              "percentage": "4.17%"
+            },
+            "review_rate": {
+              "numerator": 16,
+              "denominator": 40,
+              "rate": 0.4,
+              "percentage": "40.00%"
+            },
+            "processing_success": {
+              "numerator": 40,
+              "denominator": 40,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "missing_evidence": 2,
+            "no_decisive_rule": 12,
+            "policy_conflict": 1,
+            "unsupported_pattern": 1
+          }
+        },
+        "network": {
+          "eligible_population": 40,
+          "accepted_count": 40,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 11,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 12,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 16,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 11,
+              "denominator": 12,
+              "rate": 0.916667,
+              "percentage": "91.67%"
+            },
+            "suspicious_recall": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 24,
+              "denominator": 40,
+              "rate": 0.6,
+              "percentage": "60.00%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 24,
+              "rate": 0.041667,
+              "percentage": "4.17%"
+            },
+            "review_rate": {
+              "numerator": 16,
+              "denominator": 40,
+              "rate": 0.4,
+              "percentage": "40.00%"
+            },
+            "processing_success": {
+              "numerator": 40,
+              "denominator": 40,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "contradictory_evidence": 1,
+            "missing_evidence": 2,
+            "no_decisive_rule": 12,
+            "unsupported_pattern": 1
+          }
+        }
+      },
+      "by_slice_category": {
+        "authentication": {
+          "eligible_population": 36,
+          "accepted_count": 36,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 11,
+              "likely_benign": 0,
+              "needs_review": 2,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 12,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 10,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 11,
+              "denominator": 12,
+              "rate": 0.916667,
+              "percentage": "91.67%"
+            },
+            "suspicious_recall": {
+              "numerator": 11,
+              "denominator": 13,
+              "rate": 0.846154,
+              "percentage": "84.62%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 13,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 24,
+              "denominator": 36,
+              "rate": 0.666667,
+              "percentage": "66.67%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 24,
+              "rate": 0.041667,
+              "percentage": "4.17%"
+            },
+            "review_rate": {
+              "numerator": 12,
+              "denominator": 36,
+              "rate": 0.333333,
+              "percentage": "33.33%"
+            },
+            "processing_success": {
+              "numerator": 36,
+              "denominator": 36,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 12
+          }
+        },
+        "process": {
+          "eligible_population": 36,
+          "accepted_count": 36,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 11,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 12,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 12,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 11,
+              "denominator": 12,
+              "rate": 0.916667,
+              "percentage": "91.67%"
+            },
+            "suspicious_recall": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 24,
+              "denominator": 36,
+              "rate": 0.666667,
+              "percentage": "66.67%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 24,
+              "rate": 0.041667,
+              "percentage": "4.17%"
+            },
+            "review_rate": {
+              "numerator": 12,
+              "denominator": 36,
+              "rate": 0.333333,
+              "percentage": "33.33%"
+            },
+            "processing_success": {
+              "numerator": 36,
+              "denominator": 36,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 12
+          }
+        },
+        "network": {
+          "eligible_population": 36,
+          "accepted_count": 36,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 11,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 12,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 12,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 11,
+              "denominator": 12,
+              "rate": 0.916667,
+              "percentage": "91.67%"
+            },
+            "suspicious_recall": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 24,
+              "denominator": 36,
+              "rate": 0.666667,
+              "percentage": "66.67%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 24,
+              "rate": 0.041667,
+              "percentage": "4.17%"
+            },
+            "review_rate": {
+              "numerator": 12,
+              "denominator": 36,
+              "rate": 0.333333,
+              "percentage": "33.33%"
+            },
+            "processing_success": {
+              "numerator": 36,
+              "denominator": 36,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 12
+          }
+        },
+        "uncertainty": {
+          "eligible_population": 12,
+          "accepted_count": 12,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 12,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "contradictory_evidence": 1,
+            "missing_evidence": 7,
+            "policy_conflict": 1,
+            "unsupported_pattern": 3
+          }
+        }
+      },
+      "by_scenario_family": {
+        "HOLD-AUTH-BATCH-02": {
+          "eligible_population": 1,
+          "accepted_count": 1,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "HOLD-AUTH-BORDER-05": {
+          "eligible_population": 10,
+          "accepted_count": 10,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 10,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 10,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 10,
+              "denominator": 10,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 10,
+              "denominator": 10,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 10
+          }
+        },
+        "HOLD-AUTH-LOWSLOW-03": {
+          "eligible_population": 2,
+          "accepted_count": 2,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 2,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 2,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 2,
+              "denominator": 2,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 2,
+              "denominator": 2,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 2
+          }
+        },
+        "HOLD-AUTH-SPRAY-01": {
+          "eligible_population": 11,
+          "accepted_count": 11,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 11,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "HOLD-AUTH-WORK-04": {
+          "eligible_population": 12,
+          "accepted_count": 12,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 12,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "HOLD-NET-BOT-01": {
+          "eligible_population": 11,
+          "accepted_count": 11,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 11,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "HOLD-NET-REPO-03": {
+          "eligible_population": 12,
+          "accepted_count": 12,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 12,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "HOLD-NET-REUSEDIP-02": {
+          "eligible_population": 1,
+          "accepted_count": 1,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "HOLD-NET-UNKNOWN-04": {
+          "eligible_population": 12,
+          "accepted_count": 12,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 12,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 12
+          }
+        },
+        "HOLD-PROC-GRAY-04": {
+          "eligible_population": 12,
+          "accepted_count": 12,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 12,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "no_decisive_rule": 12
+          }
+        },
+        "HOLD-PROC-LABTOOL-02": {
+          "eligible_population": 1,
+          "accepted_count": 1,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 1,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 1,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 1,
+              "denominator": 1,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "HOLD-PROC-STAGE-01": {
+          "eligible_population": 11,
+          "accepted_count": 11,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 11,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "suspicious_recall": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "decisive_coverage": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 11,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 11,
+              "denominator": 11,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "HOLD-PROC-SYS-03": {
+          "eligible_population": 12,
+          "accepted_count": 12,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 12,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "review_rate": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "processing_success": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {}
+        },
+        "HOLD-UNC-01": {
+          "eligible_population": 12,
+          "accepted_count": 12,
+          "invalid_or_failed_count": 0,
+          "confusion_matrix": {
+            "suspicious": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "likely_benign": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 0,
+              "invalid_or_failed": 0
+            },
+            "needs_review": {
+              "suspicious": 0,
+              "likely_benign": 0,
+              "needs_review": 12,
+              "invalid_or_failed": 0
+            }
+          },
+          "metrics": {
+            "suspicious_precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "suspicious_recall": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "critical_benign_miss_rate": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "decisive_coverage": {
+              "numerator": 0,
+              "denominator": 12,
+              "rate": 0.0,
+              "percentage": "0.00%"
+            },
+            "selective_error": {
+              "numerator": 0,
+              "denominator": 0,
+              "rate": "not_applicable",
+              "percentage": "not_applicable"
+            },
+            "review_rate": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            },
+            "processing_success": {
+              "numerator": 12,
+              "denominator": 12,
+              "rate": 1.0,
+              "percentage": "100.00%"
+            }
+          },
+          "review_reason_distribution": {
+            "contradictory_evidence": 1,
+            "missing_evidence": 7,
+            "policy_conflict": 1,
+            "unsupported_pattern": 3
+          }
+        }
+      }
+    },
+    "disagreements": [
+      {
+        "alert_id": "hold-auth-012",
+        "family": "authentication",
+        "event_name": "login_sequence",
+        "scenario_family_id": "HOLD-AUTH-BATCH-02",
+        "underlying_scenario_state": "benign",
+        "expected_disposition": "needs_review",
+        "predicted_disposition": "suspicious",
+        "matched_rule_ids": [
+          "AUTH-S01"
+        ],
+        "review_reasons": [],
+        "rationale": "Counterexample: benign legacy cron retry spike after vault sync delay on lab subnet."
+      },
+      {
+        "alert_id": "hold-auth-013",
+        "family": "authentication",
+        "event_name": "login_sequence",
+        "scenario_family_id": "HOLD-AUTH-LOWSLOW-03",
+        "underlying_scenario_state": "malicious",
+        "expected_disposition": "suspicious",
+        "predicted_disposition": "needs_review",
+        "matched_rule_ids": [],
+        "review_reasons": [
+          "no_decisive_rule"
+        ],
+        "rationale": "Counterexample: paced intrusion with 8 failures in 250s followed by login from unapproved origin."
+      },
+      {
+        "alert_id": "hold-auth-014",
+        "family": "authentication",
+        "event_name": "login_sequence",
+        "scenario_family_id": "HOLD-AUTH-LOWSLOW-03",
+        "underlying_scenario_state": "malicious",
+        "expected_disposition": "suspicious",
+        "predicted_disposition": "needs_review",
+        "matched_rule_ids": [],
+        "review_reasons": [
+          "no_decisive_rule"
+        ],
+        "rationale": "Counterexample: paced intrusion with 9 failures in 250s followed by login from unapproved origin."
+      },
+      {
+        "alert_id": "hold-proc-012",
+        "family": "process",
+        "event_name": "process_start",
+        "scenario_family_id": "HOLD-PROC-LABTOOL-02",
+        "underlying_scenario_state": "benign",
+        "expected_disposition": "needs_review",
+        "predicted_disposition": "suspicious",
+        "matched_rule_ids": [
+          "PROC-S01"
+        ],
+        "review_reasons": [],
+        "rationale": "Counterexample: unsigned QA test harness in user-writable path; triggers PROC-S01 false positive without host role context."
+      },
+      {
+        "alert_id": "hold-net-012",
+        "family": "network",
+        "event_name": "connection_summary",
+        "scenario_family_id": "HOLD-NET-REUSEDIP-02",
+        "underlying_scenario_state": "benign",
+        "expected_disposition": "needs_review",
+        "predicted_disposition": "suspicious",
+        "matched_rule_ids": [
+          "NET-S01"
+        ],
+        "review_reasons": [],
+        "rationale": "Counterexample: stale blocklist hit on reallocated cloud IP; requires analyst review rather than automatic suspicious verdict."
+      }
+    ]
+  }
+}

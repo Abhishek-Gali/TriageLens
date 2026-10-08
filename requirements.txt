@@ -1,0 +1,8 @@
+# TriageLens dependencies
+# Note: Core runtime (src/triagelens/) uses the Python 3.13 standard library only
+# and includes the pre-trained P5 linear classifier (models/triagelens_linear_v1.json).
+# The packages below are used for P5 model training/re-export and running the pytest suite:
+numpy==2.3.5
+scipy==1.17.0
+scikit-learn==1.8.0
+pytest==9.1.1

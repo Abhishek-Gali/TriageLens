@@ -1,0 +1,858 @@
+{
+  "p5_training_and_validation": {
+    "artifact_path": "models/triagelens_linear_v1.json",
+    "artifact_sha256": "5053619c8398f9b535de5fd4ffe2128c4a478932f858f190610b311cdcfa929b",
+    "weights_sha256": "02c1179c717d497296e759202b5fcbbcc303549c058408703315044d4f224128",
+    "train_count": 240,
+    "val_count": 60,
+    "fresh_holdout_p5p6_count": 120,
+    "group_kfold_5_mean_f1": 0.0,
+    "validation_model_comparison": {
+      "naive_majority_baseline": {
+        "accuracy": 0.5667,
+        "f1": 0.0
+      },
+      "logistic_regression_l2": {
+        "accuracy": 0.9833,
+        "precision": 1.0,
+        "recall": 0.9615,
+        "f1": 0.9804,
+        "confusion_matrix": [
+          [
+            34,
+            0
+          ],
+          [
+            1,
+            25
+          ]
+        ]
+      },
+      "linear_svc": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            34,
+            0
+          ],
+          [
+            0,
+            26
+          ]
+        ]
+      }
+    },
+    "feature_weights": {
+      "family_is_authentication": 0.99884362,
+      "family_is_process": 0.81374253,
+      "family_is_network": -1.81258615,
+      "auth_failed_attempts": 0.18602581,
+      "auth_window_seconds": -0.02262272,
+      "auth_success_after_failures": 0.99884362,
+      "auth_approved_origin": -3.06654539,
+      "proc_sig_signed": -1.4600327,
+      "proc_sig_unsigned": 2.76202075,
+      "proc_loc_managed": -1.4600327,
+      "proc_loc_user_writable": 2.76202075,
+      "proc_approved_executable": -1.4600327,
+      "net_connection_count": 0.2888003,
+      "net_window_seconds": 0.01104805,
+      "net_destination_blocklisted": 1.18293348,
+      "net_approved_destination": -5.12365049
+    },
+    "folded_bias": -1.69546448
+  },
+  "p5_validation_split_interception": {
+    "eligible_records": 60,
+    "baseline_metrics": {
+      "suspicious_precision": {
+        "numerator": 26,
+        "denominator": 34,
+        "rate": 0.764706,
+        "percentage": "76.47%"
+      },
+      "suspicious_recall": {
+        "numerator": 26,
+        "denominator": 26,
+        "rate": 1.0,
+        "percentage": "100.00%"
+      },
+      "critical_benign_miss_rate": {
+        "numerator": 0,
+        "denominator": 26,
+        "rate": 0.0,
+        "percentage": "0.00%"
+      },
+      "decisive_coverage": {
+        "numerator": 60,
+        "denominator": 60,
+        "rate": 1.0,
+        "percentage": "100.00%"
+      },
+      "selective_error": {
+        "numerator": 8,
+        "denominator": 60,
+        "rate": 0.133333,
+        "percentage": "13.33%"
+      },
+      "review_rate": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "percentage": "0.00%"
+      },
+      "processing_success": {
+        "numerator": 60,
+        "denominator": 60,
+        "rate": 1.0,
+        "percentage": "100.00%"
+      }
+    },
+    "ml_assisted_metrics": {
+      "suspicious_precision": {
+        "numerator": 25,
+        "denominator": 25,
+        "rate": 1.0,
+        "percentage": "100.00%"
+      },
+      "suspicious_recall": {
+        "numerator": 25,
+        "denominator": 26,
+        "rate": 0.961538,
+        "percentage": "96.15%"
+      },
+      "critical_benign_miss_rate": {
+        "numerator": 0,
+        "denominator": 26,
+        "rate": 0.0,
+        "percentage": "0.00%"
+      },
+      "decisive_coverage": {
+        "numerator": 51,
+        "denominator": 60,
+        "rate": 0.85,
+        "percentage": "85.00%"
+      },
+      "selective_error": {
+        "numerator": 0,
+        "denominator": 51,
+        "rate": 0.0,
+        "percentage": "0.00%"
+      },
+      "review_rate": {
+        "numerator": 9,
+        "denominator": 60,
+        "rate": 0.15,
+        "percentage": "15.00%"
+      },
+      "processing_success": {
+        "numerator": 60,
+        "denominator": 60,
+        "rate": 1.0,
+        "percentage": "100.00%"
+      }
+    },
+    "baseline_confusion_matrix": {
+      "suspicious": {
+        "suspicious": 26,
+        "likely_benign": 0,
+        "needs_review": 0,
+        "invalid_or_failed": 0
+      },
+      "likely_benign": {
+        "suspicious": 0,
+        "likely_benign": 26,
+        "needs_review": 0,
+        "invalid_or_failed": 0
+      },
+      "needs_review": {
+        "suspicious": 8,
+        "likely_benign": 0,
+        "needs_review": 0,
+        "invalid_or_failed": 0
+      }
+    },
+    "ml_assisted_confusion_matrix": {
+      "suspicious": {
+        "suspicious": 25,
+        "likely_benign": 0,
+        "needs_review": 1,
+        "invalid_or_failed": 0
+      },
+      "likely_benign": {
+        "suspicious": 0,
+        "likely_benign": 26,
+        "needs_review": 0,
+        "invalid_or_failed": 0
+      },
+      "needs_review": {
+        "suspicious": 0,
+        "likely_benign": 0,
+        "needs_review": 8,
+        "invalid_or_failed": 0
+      }
+    },
+    "interception_analysis": {
+      "additional_review_count": 9,
+      "additional_review_rate": 0.15,
+      "additional_review_percentage": "15.00%",
+      "intercepted_error_count": 8,
+      "unnecessary_escalation_count": 1,
+      "interception_precision": 0.888889,
+      "interception_precision_percentage": "88.89%",
+      "prohibited_transitions": [],
+      "intercepted_records": [
+        {
+          "alert_id": "val-auth-009",
+          "scenario_family_id": "VAL-AUTH-SVC-RETRY",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -2.362063
+        },
+        {
+          "alert_id": "val-auth-010",
+          "scenario_family_id": "VAL-AUTH-SVC-RETRY",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -2.741605
+        },
+        {
+          "alert_id": "val-auth-011",
+          "scenario_family_id": "VAL-AUTH-SVC-RETRY",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -3.121148
+        },
+        {
+          "alert_id": "val-auth-012",
+          "scenario_family_id": "VAL-AUTH-SVC-RETRY",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -4.058767
+        },
+        {
+          "alert_id": "val-net-009",
+          "scenario_family_id": "VAL-NET-STALE-IP",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -1.373434
+        },
+        {
+          "alert_id": "val-net-010",
+          "scenario_family_id": "VAL-NET-STALE-IP",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -1.084634
+        },
+        {
+          "alert_id": "val-net-011",
+          "scenario_family_id": "VAL-NET-STALE-IP",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -1.373434
+        },
+        {
+          "alert_id": "val-net-012",
+          "scenario_family_id": "VAL-NET-STALE-IP",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -1.084634
+        }
+      ],
+      "unnecessary_escalated_records": [
+        {
+          "alert_id": "val-net-001",
+          "scenario_family_id": "VAL-NET-BEACON",
+          "expected_disposition": "suspicious",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -0.218233
+        }
+      ],
+      "gate_g12_passed": false
+    },
+    "runtime_metrics": {
+      "batch_wall_ms": 28.681,
+      "records_per_second": 2091.99,
+      "median_record_ms": 0.2249,
+      "p95_record_ms": 0.3708,
+      "p99_record_ms": 0.4407,
+      "peak_traced_memory_mib": 0.0555,
+      "classifier_median_ms": 0.0254,
+      "classifier_p99_ms": 0.0632
+    }
+  },
+  "p5_fresh_holdout_p5p6_interception": {
+    "eligible_records": 120,
+    "baseline_metrics": {
+      "suspicious_precision": {
+        "numerator": 33,
+        "denominator": 36,
+        "rate": 0.916667,
+        "percentage": "91.67%"
+      },
+      "suspicious_recall": {
+        "numerator": 33,
+        "denominator": 35,
+        "rate": 0.942857,
+        "percentage": "94.29%"
+      },
+      "critical_benign_miss_rate": {
+        "numerator": 0,
+        "denominator": 35,
+        "rate": 0.0,
+        "percentage": "0.00%"
+      },
+      "decisive_coverage": {
+        "numerator": 72,
+        "denominator": 120,
+        "rate": 0.6,
+        "percentage": "60.00%"
+      },
+      "selective_error": {
+        "numerator": 3,
+        "denominator": 72,
+        "rate": 0.041667,
+        "percentage": "4.17%"
+      },
+      "review_rate": {
+        "numerator": 48,
+        "denominator": 120,
+        "rate": 0.4,
+        "percentage": "40.00%"
+      },
+      "processing_success": {
+        "numerator": 120,
+        "denominator": 120,
+        "rate": 1.0,
+        "percentage": "100.00%"
+      }
+    },
+    "ml_assisted_metrics": {
+      "suspicious_precision": {
+        "numerator": 33,
+        "denominator": 34,
+        "rate": 0.970588,
+        "percentage": "97.06%"
+      },
+      "suspicious_recall": {
+        "numerator": 33,
+        "denominator": 35,
+        "rate": 0.942857,
+        "percentage": "94.29%"
+      },
+      "critical_benign_miss_rate": {
+        "numerator": 0,
+        "denominator": 35,
+        "rate": 0.0,
+        "percentage": "0.00%"
+      },
+      "decisive_coverage": {
+        "numerator": 69,
+        "denominator": 120,
+        "rate": 0.575,
+        "percentage": "57.50%"
+      },
+      "selective_error": {
+        "numerator": 1,
+        "denominator": 69,
+        "rate": 0.014493,
+        "percentage": "1.45%"
+      },
+      "review_rate": {
+        "numerator": 51,
+        "denominator": 120,
+        "rate": 0.425,
+        "percentage": "42.50%"
+      },
+      "processing_success": {
+        "numerator": 120,
+        "denominator": 120,
+        "rate": 1.0,
+        "percentage": "100.00%"
+      }
+    },
+    "baseline_confusion_matrix": {
+      "suspicious": {
+        "suspicious": 33,
+        "likely_benign": 0,
+        "needs_review": 2,
+        "invalid_or_failed": 0
+      },
+      "likely_benign": {
+        "suspicious": 0,
+        "likely_benign": 36,
+        "needs_review": 0,
+        "invalid_or_failed": 0
+      },
+      "needs_review": {
+        "suspicious": 3,
+        "likely_benign": 0,
+        "needs_review": 46,
+        "invalid_or_failed": 0
+      }
+    },
+    "ml_assisted_confusion_matrix": {
+      "suspicious": {
+        "suspicious": 33,
+        "likely_benign": 0,
+        "needs_review": 2,
+        "invalid_or_failed": 0
+      },
+      "likely_benign": {
+        "suspicious": 0,
+        "likely_benign": 35,
+        "needs_review": 1,
+        "invalid_or_failed": 0
+      },
+      "needs_review": {
+        "suspicious": 1,
+        "likely_benign": 0,
+        "needs_review": 48,
+        "invalid_or_failed": 0
+      }
+    },
+    "interception_analysis": {
+      "additional_review_count": 3,
+      "additional_review_rate": 0.025,
+      "additional_review_percentage": "2.50%",
+      "intercepted_error_count": 2,
+      "unnecessary_escalation_count": 1,
+      "interception_precision": 0.666667,
+      "interception_precision_percentage": "66.67%",
+      "prohibited_transitions": [],
+      "intercepted_records": [
+        {
+          "alert_id": "hold2-auth-012",
+          "scenario_family_id": "HOLD2-AUTH-BATCH-02",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -2.89492
+        },
+        {
+          "alert_id": "hold2-net-012",
+          "scenario_family_id": "HOLD2-NET-REUSEDIP-02",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -1.084634
+        }
+      ],
+      "unnecessary_escalated_records": [
+        {
+          "alert_id": "hold2-net-024",
+          "scenario_family_id": "HOLD2-NET-REPO-03",
+          "expected_disposition": "likely_benign",
+          "baseline_disposition": "likely_benign",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "suspicious",
+          "classifier_raw_score": 0.576955
+        }
+      ],
+      "gate_g12_passed": true
+    },
+    "runtime_metrics": {
+      "batch_wall_ms": 63.792,
+      "records_per_second": 1881.11,
+      "median_record_ms": 0.2609,
+      "p95_record_ms": 0.4851,
+      "p99_record_ms": 0.5783,
+      "peak_traced_memory_mib": 0.0727,
+      "classifier_median_ms": 0.0263,
+      "classifier_p99_ms": 0.0564
+    }
+  },
+  "p5_original_p4_holdout_regression": {
+    "eligible_records": 120,
+    "baseline_metrics": {
+      "suspicious_precision": {
+        "numerator": 33,
+        "denominator": 36,
+        "rate": 0.916667,
+        "percentage": "91.67%"
+      },
+      "suspicious_recall": {
+        "numerator": 33,
+        "denominator": 35,
+        "rate": 0.942857,
+        "percentage": "94.29%"
+      },
+      "critical_benign_miss_rate": {
+        "numerator": 0,
+        "denominator": 35,
+        "rate": 0.0,
+        "percentage": "0.00%"
+      },
+      "decisive_coverage": {
+        "numerator": 72,
+        "denominator": 120,
+        "rate": 0.6,
+        "percentage": "60.00%"
+      },
+      "selective_error": {
+        "numerator": 3,
+        "denominator": 72,
+        "rate": 0.041667,
+        "percentage": "4.17%"
+      },
+      "review_rate": {
+        "numerator": 48,
+        "denominator": 120,
+        "rate": 0.4,
+        "percentage": "40.00%"
+      },
+      "processing_success": {
+        "numerator": 120,
+        "denominator": 120,
+        "rate": 1.0,
+        "percentage": "100.00%"
+      }
+    },
+    "ml_assisted_metrics": {
+      "suspicious_precision": {
+        "numerator": 33,
+        "denominator": 34,
+        "rate": 0.970588,
+        "percentage": "97.06%"
+      },
+      "suspicious_recall": {
+        "numerator": 33,
+        "denominator": 35,
+        "rate": 0.942857,
+        "percentage": "94.29%"
+      },
+      "critical_benign_miss_rate": {
+        "numerator": 0,
+        "denominator": 35,
+        "rate": 0.0,
+        "percentage": "0.00%"
+      },
+      "decisive_coverage": {
+        "numerator": 69,
+        "denominator": 120,
+        "rate": 0.575,
+        "percentage": "57.50%"
+      },
+      "selective_error": {
+        "numerator": 1,
+        "denominator": 69,
+        "rate": 0.014493,
+        "percentage": "1.45%"
+      },
+      "review_rate": {
+        "numerator": 51,
+        "denominator": 120,
+        "rate": 0.425,
+        "percentage": "42.50%"
+      },
+      "processing_success": {
+        "numerator": 120,
+        "denominator": 120,
+        "rate": 1.0,
+        "percentage": "100.00%"
+      }
+    },
+    "baseline_confusion_matrix": {
+      "suspicious": {
+        "suspicious": 33,
+        "likely_benign": 0,
+        "needs_review": 2,
+        "invalid_or_failed": 0
+      },
+      "likely_benign": {
+        "suspicious": 0,
+        "likely_benign": 36,
+        "needs_review": 0,
+        "invalid_or_failed": 0
+      },
+      "needs_review": {
+        "suspicious": 3,
+        "likely_benign": 0,
+        "needs_review": 46,
+        "invalid_or_failed": 0
+      }
+    },
+    "ml_assisted_confusion_matrix": {
+      "suspicious": {
+        "suspicious": 33,
+        "likely_benign": 0,
+        "needs_review": 2,
+        "invalid_or_failed": 0
+      },
+      "likely_benign": {
+        "suspicious": 0,
+        "likely_benign": 35,
+        "needs_review": 1,
+        "invalid_or_failed": 0
+      },
+      "needs_review": {
+        "suspicious": 1,
+        "likely_benign": 0,
+        "needs_review": 48,
+        "invalid_or_failed": 0
+      }
+    },
+    "interception_analysis": {
+      "additional_review_count": 3,
+      "additional_review_rate": 0.025,
+      "additional_review_percentage": "2.50%",
+      "intercepted_error_count": 2,
+      "unnecessary_escalation_count": 1,
+      "interception_precision": 0.666667,
+      "interception_precision_percentage": "66.67%",
+      "prohibited_transitions": [],
+      "intercepted_records": [
+        {
+          "alert_id": "hold-auth-012",
+          "scenario_family_id": "HOLD-AUTH-BATCH-02",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -2.89492
+        },
+        {
+          "alert_id": "hold-net-012",
+          "scenario_family_id": "HOLD-NET-REUSEDIP-02",
+          "expected_disposition": "needs_review",
+          "baseline_disposition": "suspicious",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "likely_benign",
+          "classifier_raw_score": -1.084634
+        }
+      ],
+      "unnecessary_escalated_records": [
+        {
+          "alert_id": "hold-net-024",
+          "scenario_family_id": "HOLD-NET-REPO-03",
+          "expected_disposition": "likely_benign",
+          "baseline_disposition": "likely_benign",
+          "ml_final_disposition": "needs_review",
+          "classifier_predicted_class": "suspicious",
+          "classifier_raw_score": 0.576955
+        }
+      ],
+      "gate_g12_passed": true
+    },
+    "runtime_metrics": {
+      "batch_wall_ms": 63.092,
+      "records_per_second": 1901.99,
+      "median_record_ms": 0.2652,
+      "p95_record_ms": 0.4917,
+      "p99_record_ms": 0.6557,
+      "peak_traced_memory_mib": 0.0766,
+      "classifier_median_ms": 0.0261,
+      "classifier_p99_ms": 0.0601
+    }
+  },
+  "p6_local_llm_evaluation": {
+    "model": "qwen2.5:1.5b",
+    "endpoint": "http://127.0.0.1:11434",
+    "total_evaluated": 36,
+    "valid_local_llm_summaries": 36,
+    "rejected_fallback_count": 0,
+    "failed_fallback_count": 0,
+    "decision_field_mutations": 0,
+    "unsupported_substantive_claims": 0,
+    "runtime_metrics": {
+      "batch_wall_ms": 58741.013,
+      "records_per_second": 0.61,
+      "median_record_ms": 1530.2267,
+      "p95_record_ms": 2379.9635,
+      "p99_record_ms": 4049.9946,
+      "peak_traced_memory_mib": 0.056,
+      "classifier_median_ms": 0.0561,
+      "classifier_p99_ms": 0.1267,
+      "summarizer_median_ms": 1529.8105,
+      "summarizer_p95_ms": 2379.2692,
+      "summarizer_p99_ms": 4049.6743
+    },
+    "gate_g13_passed": true,
+    "gate_g14_passed": true,
+    "sample_records": [
+      {
+        "alert_id": "hold2-auth-001",
+        "disposition": "suspicious",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports 12 failed attempts and a success after failures, with a window of 65 seconds, indicating a suspicious login sequence.",
+        "template_summary": "The supplied alert reports 12 failed attempts within 65 seconds followed by success (approved_origin=false). AUTH-S01 marks this sequence suspicious for investigation.",
+        "summarizer_ms": 4049.67
+      },
+      {
+        "alert_id": "hold2-auth-002",
+        "disposition": "suspicious",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports 14 failed attempts and a success after failures, with a window of 85 seconds, indicating a suspicious login sequence.",
+        "template_summary": "The supplied alert reports 14 failed attempts within 85 seconds followed by success (approved_origin=false). AUTH-S01 marks this sequence suspicious for investigation.",
+        "summarizer_ms": 1486.16
+      },
+      {
+        "alert_id": "hold2-auth-003",
+        "disposition": "suspicious",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports 16 failed attempts and a success after failures, with a window of 105 seconds, indicating a suspicious login sequence.",
+        "template_summary": "The supplied alert reports 16 failed attempts within 105 seconds followed by success (approved_origin=false). AUTH-S01 marks this sequence suspicious for investigation.",
+        "summarizer_ms": 1573.79
+      },
+      {
+        "alert_id": "hold2-auth-004",
+        "disposition": "suspicious",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports 18 failed attempts and a success after failures, with a window of 125 seconds, citing family \"authentication\" and matched rule ID \"AUTH-S01\", and disposition suspicious.",
+        "template_summary": "The supplied alert reports 18 failed attempts within 125 seconds followed by success (approved_origin=false). AUTH-S01 marks this sequence suspicious for investigation.",
+        "summarizer_ms": 1977.49
+      },
+      {
+        "alert_id": "hold2-auth-015",
+        "disposition": "likely_benign",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a login sequence event for a family of authentication, with no cited observations indicating a security threat, and disposition likely benign.",
+        "template_summary": "The supplied alert reports 0 failed attempt(s) within 45 seconds followed by success from an approved origin (approved_origin=true). AUTH-B01 classifies this sequence as likely_benign.",
+        "summarizer_ms": 2051.96
+      },
+      {
+        "alert_id": "hold2-auth-016",
+        "disposition": "likely_benign",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a login sequence with one failed attempt and subsequent success, indicating a likely benign disposition.",
+        "template_summary": "The supplied alert reports 1 failed attempt(s) within 60 seconds followed by success from an approved origin (approved_origin=true). AUTH-B01 classifies this sequence as likely_benign.",
+        "summarizer_ms": 1157.91
+      },
+      {
+        "alert_id": "hold2-auth-017",
+        "disposition": "likely_benign",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a login sequence with two failed attempts and a subsequent successful login, indicating a likely benign event.",
+        "template_summary": "The supplied alert reports 2 failed attempt(s) within 75 seconds followed by success from an approved origin (approved_origin=true). AUTH-B01 classifies this sequence as likely_benign.",
+        "summarizer_ms": 1266.83
+      },
+      {
+        "alert_id": "hold2-auth-018",
+        "disposition": "likely_benign",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a login sequence event with no observed failed attempts or success after failures, indicating a likely benign disposition.",
+        "template_summary": "The supplied alert reports 0 failed attempt(s) within 90 seconds followed by success from an approved origin (approved_origin=true). AUTH-B01 classifies this sequence as likely_benign.",
+        "summarizer_ms": 1281.6
+      },
+      {
+        "alert_id": "hold2-auth-027",
+        "disposition": "needs_review",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a login sequence with 3 failed attempts and a window of 120 seconds, approved origin, and no decisive rule matched. The disposition is needs_review.",
+        "template_summary": "The supplied authentication alert reports 3 failed attempt(s) in 120 seconds (success_after_failures=true, approved_origin=true), which did not satisfy a decisive rule. Disposition is needs_review (no_decisive_rule).",
+        "summarizer_ms": 2379.27
+      },
+      {
+        "alert_id": "hold2-auth-028",
+        "disposition": "needs_review",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a login sequence with 5 failed attempts and a window of 180 seconds, but no decisive rule matched, leading to a needs_review disposition.",
+        "template_summary": "The supplied authentication alert reports 5 failed attempt(s) in 180 seconds (success_after_failures=true, approved_origin=false), which did not satisfy a decisive rule. Disposition is needs_review (no_decisive_rule).",
+        "summarizer_ms": 1779.39
+      },
+      {
+        "alert_id": "hold2-proc-001",
+        "disposition": "suspicious",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a process start event for a user-writable location, with no signature status and a suspicious disposition.",
+        "template_summary": "The supplied alert reports an executable with signature_status='unsigned' started from location_category='user_writable'. PROC-S01 marks this process activity suspicious for investigation.",
+        "summarizer_ms": 1318.56
+      },
+      {
+        "alert_id": "hold2-proc-002",
+        "disposition": "suspicious",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a process start event for a user-writable location, with no signature status and a suspicious disposition.",
+        "template_summary": "The supplied alert reports an executable with signature_status='unsigned' started from location_category='user_writable'. PROC-S01 marks this process activity suspicious for investigation.",
+        "summarizer_ms": 899.97
+      },
+      {
+        "alert_id": "p6-adv-001",
+        "disposition": "suspicious",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports 18 failed attempts and a success after failures, with a window of 120 seconds, citing observed behavior as suspicious. The disposition is suspicious.",
+        "template_summary": "The supplied alert reports 18 failed attempts within 120 seconds followed by success (approved_origin=false). AUTH-S01 marks this sequence suspicious for investigation.",
+        "summarizer_ms": 1809.48
+      },
+      {
+        "alert_id": "p6-adv-002",
+        "disposition": "suspicious",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a process start event for a user-writable location, with no signature status and a suspicious disposition.",
+        "template_summary": "The supplied alert reports an executable with signature_status='unsigned' started from location_category='user_writable'. PROC-S01 marks this process activity suspicious for investigation.",
+        "summarizer_ms": 1308.97
+      },
+      {
+        "alert_id": "p6-adv-003",
+        "disposition": "suspicious",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The supplied alert reports a connection summary with 12 connections and a destination that is blocklisted, resulting in a disposition of suspicious.",
+        "template_summary": "The supplied alert reports 12 connection(s) within 60 seconds with destination_blocklisted=true. NET-S01 marks this network summary suspicious for investigation.",
+        "summarizer_ms": 1417.6
+      },
+      {
+        "alert_id": "p6-adv-004",
+        "disposition": "likely_benign",
+        "summary_source": "local_llm",
+        "validation_state": "valid",
+        "fallback_reason": null,
+        "served_summary": "The alert reports a login sequence with one failed attempt and subsequent success, indicating a likely benign event.",
+        "template_summary": "The supplied alert reports 1 failed attempt(s) within 60 seconds followed by success from an approved origin (approved_origin=true). AUTH-B01 classifies this sequence as likely_benign.",
+        "summarizer_ms": 1382.49
+      }
+    ]
+  }
+}

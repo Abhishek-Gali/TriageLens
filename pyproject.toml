@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triagelens"
+version = "0.1.0"
+description = "Offline-first deterministic security alert triage demonstration CLI"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = { text = "MIT" }
+dependencies = []
+
+[project.scripts]
+triagelens = "triagelens.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = ["-p", "no:langsmith", "-p", "no:anyio", "-p", "no:respx", "-p", "no:asyncio"]

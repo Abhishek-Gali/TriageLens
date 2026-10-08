@@ -1,0 +1,61 @@
+{
+  "format": "triagelens-linear-v1",
+  "model_id": "triagelens-logreg-l2-v1",
+  "algorithm": "sklearn.linear_model.LogisticRegression(C=1.0, solver='lbfgs', random_state=42) + StandardScaler",
+  "feature_schema_id": "triagelens-features-v1",
+  "feature_names": [
+    "family_is_authentication",
+    "family_is_process",
+    "family_is_network",
+    "auth_failed_attempts",
+    "auth_window_seconds",
+    "auth_success_after_failures",
+    "auth_approved_origin",
+    "proc_sig_signed",
+    "proc_sig_unsigned",
+    "proc_loc_managed",
+    "proc_loc_user_writable",
+    "proc_approved_executable",
+    "net_connection_count",
+    "net_window_seconds",
+    "net_destination_blocklisted",
+    "net_approved_destination"
+  ],
+  "supported_classes": [
+    "suspicious",
+    "likely_benign"
+  ],
+  "score_semantics": "uncalibrated",
+  "weights": [
+    0.99884362,
+    0.81374253,
+    -1.81258615,
+    0.18602581,
+    -0.02262272,
+    0.99884362,
+    -3.06654539,
+    -1.4600327,
+    2.76202075,
+    -1.4600327,
+    2.76202075,
+    -1.4600327,
+    0.2888003,
+    0.01104805,
+    1.18293348,
+    -5.12365049
+  ],
+  "bias": -1.69546448,
+  "weights_sha256": "02c1179c717d497296e759202b5fcbbcc303549c058408703315044d4f224128",
+  "provenance": {
+    "training_corpus_id": "triagelens-synth-independent-train-v1",
+    "train_alerts_sha256": "88300b856d7a29b6ca745002a52b5ddcebce6925e911748894fdcfdd5ed1dac0",
+    "train_labels_sha256": "d7e4a5bebc2377e37485f1194af31ce21a8ff55773f3987e7c51284744f6151f",
+    "val_alerts_sha256": "b40e373d8fac26698d394a32e7bfe7a38d6c97254abf3fc979c490138ce4cda7",
+    "val_labels_sha256": "d15646cc00d2011c072984a853272c00b8d7275b0728d972756efd0ddafc3e4a",
+    "train_records": 240,
+    "val_records": 60,
+    "sklearn_version": "1.8.0",
+    "numpy_version": "2.3.5",
+    "created_at_utc": "2026-10-08T18:05:00Z"
+  }
+}

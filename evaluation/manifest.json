@@ -1,0 +1,98 @@
+{
+  "benchmark_version": "benchmark-v1",
+  "created_at_utc": "2026-10-08T17:30:00Z",
+  "total_valid_alerts": 200,
+  "splits": {
+    "development": {
+      "count": 80,
+      "alerts_path": "evaluation/development/alerts.jsonl",
+      "alerts_sha256": "cb79600e38aa2a0651aa24dc1cb7931b7cc2fba83a81747dd2c1f23b3efa7c99",
+      "labels_path": "evaluation/development/labels.jsonl",
+      "labels_sha256": "5dc6ee7c5fb315dd2c1e43155ddf6bd1074b339055a839ada07e9b5b02a53fd4",
+      "scenario_families": [
+        "DEV-AUTH-AMB-05",
+        "DEV-AUTH-BF-01",
+        "DEV-AUTH-ROT-02",
+        "DEV-AUTH-SLOW-03",
+        "DEV-AUTH-SSO-04",
+        "DEV-NET-C2-01",
+        "DEV-NET-SAAS-03",
+        "DEV-NET-STALE-02",
+        "DEV-NET-UNCAT-04",
+        "DEV-PROC-CORP-03",
+        "DEV-PROC-DEVBUILD-02",
+        "DEV-PROC-DROP-01",
+        "DEV-PROC-UNAPP-04",
+        "DEV-UNC-01"
+      ],
+      "template_lineages": [
+        "lin-dev-auth-corp-sso",
+        "lin-dev-auth-service-rotation",
+        "lin-dev-auth-slow-stuffing",
+        "lin-dev-auth-ssh-bruteforce",
+        "lin-dev-auth-unapproved-roaming",
+        "lin-dev-net-approved-telemetry",
+        "lin-dev-net-blocklist-beacon",
+        "lin-dev-net-stale-cdn-blocklist",
+        "lin-dev-net-uncategorized-ext",
+        "lin-dev-proc-local-compiler",
+        "lin-dev-proc-managed-agent",
+        "lin-dev-proc-temp-dropper",
+        "lin-dev-proc-thirdparty-signed",
+        "lin-dev-unc-missing-and-conflicts"
+      ]
+    },
+    "holdout": {
+      "count": 120,
+      "alerts_path": "evaluation/holdout/alerts.jsonl",
+      "alerts_sha256": "60da4e153c260fa0917d88f0a584b055a6f02e358b80a1435c89ce24ff58810d",
+      "labels_path": "evaluation/holdout/labels.jsonl",
+      "labels_sha256": "54f9786c6d618374be89f384f76f22a8de06d2b525ffe89d1d4ffa97aecacc5f",
+      "scenario_families": [
+        "HOLD-AUTH-BATCH-02",
+        "HOLD-AUTH-BORDER-05",
+        "HOLD-AUTH-LOWSLOW-03",
+        "HOLD-AUTH-SPRAY-01",
+        "HOLD-AUTH-WORK-04",
+        "HOLD-NET-BOT-01",
+        "HOLD-NET-REPO-03",
+        "HOLD-NET-REUSEDIP-02",
+        "HOLD-NET-UNKNOWN-04",
+        "HOLD-PROC-GRAY-04",
+        "HOLD-PROC-LABTOOL-02",
+        "HOLD-PROC-STAGE-01",
+        "HOLD-PROC-SYS-03",
+        "HOLD-UNC-01"
+      ],
+      "template_lineages": [
+        "lin-hold-auth-legacy-cron",
+        "lin-hold-auth-paced-intrusion",
+        "lin-hold-auth-vpn-spray",
+        "lin-hold-auth-window-and-unapproved",
+        "lin-hold-auth-workstation-unlock",
+        "lin-hold-net-approved-mirror",
+        "lin-hold-net-malware-callback",
+        "lin-hold-net-reallocated-cloud-ip",
+        "lin-hold-net-unlisted-partner",
+        "lin-hold-proc-appdata-stage",
+        "lin-hold-proc-qa-harness",
+        "lin-hold-proc-signed-system",
+        "lin-hold-proc-unapproved-vendor",
+        "lin-hold-unc-incomplete-and-conflict"
+      ]
+    },
+    "robustness": {
+      "count": 11,
+      "path": "evaluation/robustness/malformed_and_hostile.jsonl",
+      "sha256": "b4a8ceb5ba1dd60701b6426b77c6f04a155626d73b502c8ef3e526c6ce2d5b57"
+    }
+  },
+  "leakage_audit": {
+    "alert_id_overlap_count": 0,
+    "scenario_family_overlap_count": 0,
+    "template_lineage_overlap_count": 0,
+    "public_examples_overlap_count": 0,
+    "inference_label_fields_present": false,
+    "status": "passed"
+  }
+}
